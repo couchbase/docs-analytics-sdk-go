@@ -1,20 +1,21 @@
 package main
 
 import (
-	"github.com/couchbase/gocbcolumnar"
 	"time"
+
+	"github.com/couchbase/gocbanalytics"
 )
 
 func connecting() {
 	// tag::connecting[]
-	cluster, err := cbcolumnar.NewCluster(
+	cluster, err := cbanalytics.NewCluster(
 		connStr,
-		cbcolumnar.NewCredential(username, password),
+		cbanalytics.NewBasicAuthCredential(username, password),
 		// The third parameter is optional.
 		// This example sets the default server query timeout to 3 minutes,
 		// that is the timeout value sent to the query server.
-		cbcolumnar.NewClusterOptions().SetTimeoutOptions(
-			cbcolumnar.NewTimeoutOptions().SetQueryTimeout(3*time.Minute),
+		cbanalytics.NewClusterOptions().SetTimeoutOptions(
+			cbanalytics.NewTimeoutOptions().SetQueryTimeout(3*time.Minute),
 		),
 	)
 	handleErr(err)

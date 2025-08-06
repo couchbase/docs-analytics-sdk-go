@@ -16,14 +16,11 @@ such as connection management and robust error handling.
 
 == Installing the SDK
 
-The Go Analytics SDK has added support for https://github.com/golang/go/wiki/Modules[Go Modules]. 
 You can use `go get` to download the SDK:
-
-IMPORTANT: `go get` only works if you have initialised a https://go.dev/blog/using-go-modules[Go module], and have a `go.mod` file in your working directory.
 
 [source,console,subs="+attributes"]
 ----
-$ go get github.com/couchbase/gocbanalytics/v1@v{sdk_current_version}
+$ go get github.com/couchbase/gocbanalytics@v{sdk_current_version}
 ----
 
 NOTE: In line with the https://golang.org/doc/devel/release.html#policy[Golang project], Couchbase supports both the current, and the previous, versions of Go.

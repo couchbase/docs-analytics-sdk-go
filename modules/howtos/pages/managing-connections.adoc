@@ -24,16 +24,13 @@ This page is a wider look at the topic.
 
 
 A connection to a Couchbase Server cluster is represented by a `Cluster` object.
-A `Cluster` provides access to Buckets, Scopes, and Collections, as well as various Couchbase services and management interfaces.
-The simplest way to create a `Cluster` object is to call `gocb.Connect()` with a <<connection-strings, connection string>>, username, and password:
+A `Cluster` provides access to Buckets and Scopes, as well as various Couchbase services and management interfaces.
+The simplest way to create a `Cluster` object is to call `cbanalytics.Connect()` with a <<connection-strings, connection string>>, username, and password:
 
 [source,golang]
 ----
-include::go-sdk:devguide:example$go/connecting.go[tag=simpleconnect,indent=0]
+include::devguide:example$connecting.go[tags=connecting]
 ----
-
-WARNING: The above example uses a `try-with-resources` block to ensure the `Cluster` instance gets closed at the end.
-It's important to either use a `try-with-resources` block, or make sure to call `cluster.close()` when you're done with the cluster.
 
 NOTE: Capella's root certificate is *not* signed by a well known Certificate Authority.
 However, the certificate is bundled with the SDK, and is automatically trusted unless you specify a different certificate to trust.
@@ -47,7 +44,7 @@ A Couchbase connection string is a comma-delimited list of IP addresses and/or h
 The parameter list is just like the query component of a URI; name-value pairs have an equals sign (`=`) separating the name and value, with an ampersand (`&`) between each pair.
 Just as in a URI, the first parameter is prefixed by a question mark (`?`).
 
-For Columnar, as for all Capella products, connection must be made with Transport Layer Security (TLS) -- for full encryption of client-side traffic --
+For Analytics, as for all Capella products, connection must be made with Transport Layer Security (TLS) -- for full encryption of client-side traffic --
 for which the `couchbases://` schema is used as the root of the connection string (note the trailing *s*).
 
 .Simple connection string

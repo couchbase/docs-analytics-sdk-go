@@ -17,6 +17,6 @@ asciidoc:
     name_platform: 'Go'
     name-sdk: 'Go Analytics SDK'
     sdk_api: '1.0'
-    sdk-api-link: https://docs.couchbase.com/sdk-api/analytics-go-client
+    sdk-api-link: https://pkg.go.dev/github.com/couchbase/gocbanalytics
     sdk-gh-link: https://github.com/couchbase/gocbanalytics
     

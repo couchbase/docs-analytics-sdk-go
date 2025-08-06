@@ -33,20 +33,17 @@ Create a collection to work upon by xref:columnar:intro:examples.adoc#travel-sam
 == Querying Your Dataset
 
 
-Execute a query and buffer all result rows in client memory:
+Execute a query and print all rows:
 
-.Scope Level
-[source,java]
+[source,golang]
 ----
-QueryResult result = scope.executeQuery("select 1");
-result.rows().forEach(row -> System.out.println("Got row: " + row));
+include::devguide:example$queries.go[tags=scopeLevelQuery]
 ----
 
 .Cluster Level
-[source,java]
+[source,golang]
 ----
-QueryResult result = cluster.executeQuery("select 1");
-result.rows().forEach(row -> System.out.println("Got row: " + row));
+include::devguide:example$queries.go[tags=clusterLevelQuery]
 ----
 
 
@@ -57,29 +54,27 @@ Supplying parameters as individual arguments to the query allows the query engin
 Execute a streaming query with positional arguments:
 
 .Positional Parameters
-[source,java]
+[source,golang]
 ----
-cluster.executeStreamingQuery(
-  "select ?=1",
-  row -> System.out.println("Got row: " + row),
-  options -> options
-    .parameters(List.of(1))
-);
+include::devguide:example$queries.go[tags=positionalParamQuery]
 ----
 
 Execute a streaming query with named arguments:
 
 .Named Parameters
-[source,java]
+[source,golang]
 ----
-cluster.executeStreamingQuery(
-  "select $foo=1",
-  row -> System.out.println("Got row: " + row),
-  options -> options
-    .parameters(Map.of("foo", 1))
-);
+include::devguide:example$queries.go[tags=namedParamQuery]
 ----
 
+
+Access query metadata
+
+.Metadata
+[source,golang]
+----
+include::devguide:example$queries.go[tags=metadata]
+----
 
 
 == Further Information

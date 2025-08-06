@@ -10,8 +10,8 @@
 
 
 
-The {sdk_dot_minor} {name-sdk} requires Go 1.22 or 1.23,
-using https://go.dev/blog/using-go-modules[Go Modules].
+In line with the https://golang.org/doc/devel/release.html#policy[Golang project], {name-sdk} supports both the current, and the previous, versions of Go.
+Earlier versions may work, but are not supported.
 
 
 == Platform Compatibility

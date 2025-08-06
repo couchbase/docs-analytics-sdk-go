@@ -3,22 +3,19 @@ package main
 import (
 	"time"
 
-	"github.com/couchbase/gocbcolumnar"
+	"github.com/couchbase/gocbanalytics"
 )
 
 func configuration() {
 	// #tag::configuration[]
-	cluster, err := cbcolumnar.NewCluster(
+	cluster, err := cbanalytics.NewCluster(
 		connStr,
-		cbcolumnar.NewCredential(username, password),
-		cbcolumnar.NewClusterOptions().
+		cbanalytics.NewBasicAuthCredential(username, password),
+		cbanalytics.NewClusterOptions().
 			SetTimeoutOptions(
-				cbcolumnar.NewTimeoutOptions().
+				cbanalytics.NewTimeoutOptions().
 					SetConnectTimeout(30*time.Second).
 					SetQueryTimeout(2*time.Minute),
-			).
-			SetSecurityOptions(cbcolumnar.NewSecurityOptions().
-				SetCipherSuites([]string{"MY_APPROVED_CIPHER_SUITE"}),
 			),
 	)
 	handleErr(err)

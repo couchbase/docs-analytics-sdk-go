@@ -3,18 +3,16 @@
 :page-role: tiles
 :!sectids:
 
+
+
 = Go Analytics SDK
-
-
-
 
 
 The Analytics Go SDK allows you to connect to a xref:analytics:intro:intro.adoc[Enterprise Analytics] cluster from Go.
 For connecting to a Couchbase Server Cluster -- self-managed, or Capella Operational --
 see our xref:go-sdk:hello-world:overview.adoc[Go Operational SDK].
 
-TIP: Connecting to an xref:columnar:intro:intro.adoc[_Capella_ Analytics] cluster from Node.js currently requires a xref:nodejs-columnar-sdk:hello-world:overview.adoc[Node.js Columnar SDK].
-
+TIP: Connecting to an xref:columnar:intro:intro.adoc[_Capella_ Analytics] cluster from Go currently requires a xref:go-columnar-sdk:hello-world:overview.adoc[Go Columnar SDK].
 
 {empty} +
 

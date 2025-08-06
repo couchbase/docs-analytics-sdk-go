@@ -5,9 +5,6 @@
 [abstract]
 {description}
 
-
-
-
 include::analytics-sdk:shared:partial$start-using-sdk.adoc[tag=intro]
 
 
@@ -35,16 +32,15 @@ Self-Managed Enterprise Analytics::
 
 === Minimum Go Version
 
-The {name-sdk} requires Go 1.22 or 1.23,
-using https://go.dev/blog/using-go-modules[Go Modules].
-
+In line with the Golang project, the {name-sdk} supports both the current, and the previous, versions of Go.
+Earlier versions may work, but are not supported.
 
 
 == Adding the SDK to an Existing Project
 
 Declare a dependency on the SDK using its xref:project-docs:sdk-full-installation.adoc[].
 
-To see log messages from the SDK, xref:howtos:logging.adoc[include an SLF4J binding in your project].
+To see log messages from the SDK, xref:howtos:logging.adoc[consult the logging documentation].
 
 
 == Connecting and Executing a Query

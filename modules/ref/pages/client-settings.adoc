@@ -5,8 +5,7 @@
 [abstract]
 {description}
 
-Almost all configuration for the SDK can be specified through the `ConnectOptions` which are passed to the gocb.Connect call in the SDK.
-In addition to this, as with SDK 2.0, the majority of these options can also be specified through the connection string.
+Almost all configuration for the SDK can be specified through the `ClusterOptions` which are passed to the `cbanalytics.Connect` call in the SDK.
 
 
 
@@ -55,9 +54,6 @@ Note that although the Golang syntax allows negative durations, the SDK rejects 
 
 For boolean client settings, the SDK expects the connection string parameter value to be `true` or `false` (case-sensitive).
 
-The values `1` and `0` may be used as aliases for `true` and `false`.
-
-
 == Client Settings Reference
 
 This section describes all client settings supported by the SDK.
@@ -97,16 +93,6 @@ You probably won't need to configure the SDK's security options unless:
 |===
 |Connection string parameter |Default value |Description
 
-|[[security.cipher_suites]]`security.cipher_suites`
-|Empty string / empty list (SDK uses any cipher suite supported by the Go runtime)
-|Limits the set of cipher suites the SDK may use when negotiating secure connections to the server.
-
-Leave this at the default value unless you have special security compliance requirements.
-
-When specifying this as a connection string parameter, the value is a comma-delimited list with no whitespace.
-
-Consult your Go reference documentation for a list of supported cipher suite names.
-
 |[[security.trust_only_pem_file]]`security.trust_only_pem_file`
 |N/A
 |Filesystem path of the PEM-encoded root certificate(s) to trust instead of the Couchbase Capella certificate authority (CA) root certificate bundled with the SDK.
@@ -134,16 +120,3 @@ You can override the unmarshaler for a specific query by setting the `Unmarshale
 ==== Custom unmarshalers
 
 Implement the `Unmarshaler` interface to add support for other JSON processing libraries.
-
-=== DNS SRV
-
-By default, the SDK does a DNS SRV lookup on the connection string's hostname in order to locate nodes in the cluster.
-If for some reason you need to disable this behavior, set the `srv` connection string parameter to `false`.
-For example:
-
-[source]
-----
-couchabses://example.com?srv=false
-----
-
-
