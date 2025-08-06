@@ -10,6 +10,8 @@ include::analytics-sdk:shared:partial$start-using-sdk.adoc[tag=intro]
 
 == Before You Start
 
+
+////
 [tabs]
 ==== 
 Capella Analytics::
@@ -28,6 +30,9 @@ Self-Managed Enterprise Analytics::
 *TODO* links to EA docs
 --
 ====
+////
+
+Install and configure an xref:enterprise-analytics:intro:intro.adoc[Enterprise Analytics Cluster].
 
 
 === Minimum Go Version
@@ -48,4 +53,20 @@ To see log messages from the SDK, xref:howtos:logging.adoc[consult the logging d
 [source,go]
 ----
 include::devguide:example$helloworld.go[tags=**]
+----
+
+=== Connection String
+
+The `connStr` in the above code sample needs to include the port used by the Enterprise Analytics server.
+Typically this would be `18095` for a standalone cluster (or `8095` if you're not using TLS -- for a testing set-up, or behind a firewall),
+and `443` (or `80`, _sans_ DNS) for a load balancer.
+Make sure to check with your administrator.
+
+[source,go]
+----
+const (
+		connStr  = "https://analytics.example.com:18095"
+		username = "user"
+		password = "password"
+	)
 ----
