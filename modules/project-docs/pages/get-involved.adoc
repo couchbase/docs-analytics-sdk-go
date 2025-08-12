@@ -6,7 +6,7 @@
 
 Couchbase welcomes community contributions to the Go Analytics SDK.
 The https://github.com/couchbase/gocbanalytics[Go Analytics SDK source code^] is available on GitHub.
-Please see the 
-https://github.com/couchbase/couchbase-jvm-clients/blob/master/CONTRIBUTING.md[CONTRIBUTING^] file for further information.
+// Please see the 
+// https://github.com/couchbase/couchbase-jvm-clients/blob/master/CONTRIBUTING.md[CONTRIBUTING^] file for further information.
 
 include::{version-common}@analytics-sdk:shared:partial$contrib.adoc[tag=contrib]
