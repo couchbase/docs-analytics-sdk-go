@@ -69,3 +69,10 @@ const (
 		password = "password"
 	)
 ----
+
+
+
+
+== Migration from Row-Based Analytics
+
+include::analytics-sdk:shared:migration.adoc[tag=migration]
