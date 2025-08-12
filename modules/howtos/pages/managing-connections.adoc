@@ -1,5 +1,5 @@
 = Managing Connections
-:description: This section describes how to connect the {name-sdk} to a Couchbase cluster.
+:description: This section describes how to connect the {name-sdk} to an Analytics cluster.
 :page-toclevels: 2
 
 
@@ -16,14 +16,14 @@
 It contains best practices as well as information on TLS/SSL and advanced connection options, and a sub-page on troubleshooting Cloud connections.
 
 
-Our xref:hello-world:start-using-sdk.adoc[Getting Started pages] cover the basics of making a connection to a Capella Columnar cluster.
+Our xref:hello-world:start-using-sdk.adoc[Getting Started pages] cover the basics of making a connection to an Enterprise Analytics cluster.
 This page is a wider look at the topic.
 
 
 == Connecting to a Cluster
 
 
-A connection to a Couchbase Server cluster is represented by a `Cluster` object.
+A connection to an Enterprise Analytics cluster is represented by a `Cluster` object.
 A `Cluster` provides access to Buckets and Scopes, as well as various Couchbase services and management interfaces.
 The simplest way to create a `Cluster` object is to call `cbanalytics.Connect()` with a <<connection-strings, connection string>>, username, and password:
 
@@ -32,9 +32,10 @@ The simplest way to create a `Cluster` object is to call `cbanalytics.Connect()`
 include::devguide:example$connecting.go[tags=connecting]
 ----
 
+////
 NOTE: Capella's root certificate is *not* signed by a well known Certificate Authority.
 However, the certificate is bundled with the SDK, and is automatically trusted unless you specify a different certificate to trust.
-
+////
 
 
 == Connection Strings
@@ -74,50 +75,12 @@ NOTE: Any TLS certificates must be set up at the point where the connections are
 
 
 
-
-////
-// DNS-SRV
-
-include::{version-common}@sdk:shared:partial$dnssrv-pars.adoc[tag=dnssrv]
-
-DNS SRV bootstrapping is enabled by default in the {name-sdk}.
-In order to make the SDK use the SRV records, you need to pass in the hostname from your records (here `example.com`):
-
-[source,scala]
-----
-include::devguide:example$scala/ManagingConnections.scala[tag=dnssrv,indent=0]
-----
-
-[source,scala]
-----
-ClusterEnvironment env = ClusterEnvironment.builder().ioConfig(IoConfig.enableDnsSrv(true)).build();
-----
-
-If the DNS SRV records could not be loaded properly you'll get the exception logged and the given host name will be used as a A record lookup.
-
-----
-WARNING: DNS SRV lookup failed, proceeding with normal bootstrap.
-javax.naming.NameNotFoundException: DNS name not found [response code 3];
-   remaining name '_couchbase._tcp.example.com'
-	at com.sun.jndi.dns.DnsClient.checkResponseCode(DnsClient.java:651)
-	at com.sun.jndi.dns.DnsClient.isMatchResponse(DnsClient.java:569)
-----
-
-Also, if you pass in more than one node, DNS SRV bootstrap will not be initiated:
-
-----
-INFO: DNS SRV enabled, but less or more than one seed node given.
-Proceeding with normal bootstrap.
-----
-////
-
-
 == Local Development
 
 
 We strongly recommend that the client and server xref:project-docs:compatibility.adoc#network-requirements[are in the same LAN-like environment] (e.g. AWS Region).
 As this may not always be possible during development, read the guidance on working with xref:ref:client-settings.adoc#commonly-used-options[constrained network environments].
-More details on connecting your client code to Couchbase Capella can be found xref:cloud:clouds:connect-an-sdk.adoc#connecting-your-sdk-to-capella[in the Capella Operational docs].
+// More details on connecting your client code to Couchbase Capella can be found xref:cloud:clouds:connect-an-sdk.adoc#connecting-your-sdk-to-capella[in the Capella Operational docs].
 
 
 
