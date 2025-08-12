@@ -75,4 +75,4 @@ const (
 
 == Migration from Row-Based Analytics
 
-include::analytics-sdk:shared:migration.adoc[tag=migration]
+include::{version-common}@analytics-sdk:shared:partial$migration.adoc[tag=migration]
