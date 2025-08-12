@@ -1,6 +1,6 @@
 = Logging
 :page-toclevels: 2
-:description: Configuring logging with the Columnar Go SDK.
+:description: Configuring logging with the Analytics Go SDK.
 
 [abstract]
 {description}
@@ -9,7 +9,7 @@
 
 
 
-The Columnar Go SDK offers simple logging of library internals to help debug issues.
+The Analytics Go SDK offers simple logging of library internals to help debug issues.
 Logging may be configured on a global library-level basis.
 *Note that the logging API is subject to change*.
 
