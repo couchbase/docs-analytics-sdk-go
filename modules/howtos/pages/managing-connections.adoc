@@ -13,7 +13,7 @@
 
 [abstract]
 {description}
-It contains best practices as well as information on TLS/SSL and advanced connection options, and a sub-page on troubleshooting Cloud connections.
+It contains best practices as well as information on TLS/SSL and advanced connection options, and a sub-page on troubleshooting remote connections.
 
 
 Our xref:hello-world:start-using-sdk.adoc[Getting Started pages] cover the basics of making a connection to an Enterprise Analytics cluster.
