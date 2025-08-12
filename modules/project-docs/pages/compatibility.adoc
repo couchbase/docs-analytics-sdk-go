@@ -1,5 +1,5 @@
 = Compatibility
-:description: Platform compatibility, and features available in different SDK versions, and compatibility between self-managed or Capella Analytics and the SDK.
+:description: Platform compatibility, and features available in different SDK versions, and compatibility between Enterprise Analytics and the SDK.
 // Plus notes on Cloud, networks, and AWS Lambda.
 :page-toclevels: 3
 :table-caption!:
@@ -33,27 +33,26 @@ include::{sdk_api}@analytics-sdk:shared:partial$network-requirements.adoc[tag=la
 
 
 
+== Enterprise Analytics Compatibility
 
+This is the initial release of Enterprise Analytics and the Analytics SDKs.
+As such, the Analytics SDK is fully compatible with Enterprise Analytics.
 
-
+////
 == Couchbase Analytics Compatibility
 
 
 The {sdk_dot_minor} {name-sdk} is compatible with our hosted Capella Analytics service, and with recent versions of self-managed Enterprise Analytics.
+////
 
 
-
-=== Enterprise Analytics Compatibility
-
-
-
-
+////
 *TODO*
 table
+////
 
 
-
-
+////
 === Capella Analytics Compatibility
 
 
@@ -61,7 +60,7 @@ Capella Analytics is a fully hosted service, continually updated, and offering t
 with users having a few weeks to upgrade from the previous version.
 As such, the latest Couchbase Analytics SDKs are tested against the latest versions.
 Where older versions of the {name-sdk} pre-date significant new features in Capella Analytics, those differences will be noted in this section.
-
+////
 
 
 
