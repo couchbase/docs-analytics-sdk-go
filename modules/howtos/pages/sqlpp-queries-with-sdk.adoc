@@ -1,5 +1,6 @@
 = Querying with {sqlpp}
 :description: You can query for documents in Couchbase using the {sqlpp} query language, a language based on SQL, but designed for structured and flexible JSON documents.
+:page-toclevels: 2
 // :page-aliases: n1ql-query.adoc,n1ql-queries-with-sdk.adoc
 // :page-aliases: ROOT:document-operations.adoc,ROOT:documents-creating,ROOT:documents-updating,ROOT:documents-retrieving,ROOT:documents-deleting,n1ql-queries-with-sdk.adoc
 
@@ -68,13 +69,32 @@ include::devguide:example$queries.go[tags=namedParamQuery]
 ----
 
 
-Access query metadata
+Access query metadata:
 
 .Metadata
 [source,golang]
 ----
 include::devguide:example$queries.go[tags=metadata]
 ----
+
+
+== Query Options
+
+The query service provides an array of options to customize your query.
+The following table lists them all:
+
+.Available Query Options
+[options="header"]
+|====
+| Name       | Description
+| `NamedParameters map[string]interface{}` | Allows to set named arguments for a parameterized query.
+| `PositionalParameters []interface{}` | Allows to set positional arguments for a parameterized query.
+| `Priority bool` | Allows to set whether this query should be assigned as high priority by the analytics engine.
+| `Raw interface{}` | Escape hatch to add arguments that are not covered by these options.
+| `ReadOnly bool` | Tells the client and server that this query is readonly.
+| `ScanConsistency QueryScanConsistency` | Sets a different scan consistency for this query.
+| `Unmarshaler Unmarshaler` | Sets a different `Unmarshaler` for this query.
+|====
 
 
 == Further Information
