@@ -15,6 +15,7 @@ asciidoc:
     version-server: '8.0'
     version-common: '1.1'
     name_platform: 'Go'
+    name_platform_lc: 'go'
     name-sdk: 'Go Analytics SDK'
     sdk_api: '1.1'
     sdk-api-link: https://pkg.go.dev/github.com/couchbase/gocbanalytics
