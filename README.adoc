@@ -1,7 +1,7 @@
 = Couchbase Analytics Go SDK Documentation
 
 This repository hosts the documentation source for the
-https://docs.couchbase.com/analytics-go-sdk/1.0/hello-world/overview.html[Analytics Go SDK Documentation].
+https://docs.couchbase.com/analytics-go-sdk/1.1/hello-world/overview.html[Analytics Go SDK Documentation].
 
 
 This branch documents the 1.1 release of the SDK.
