@@ -62,6 +62,9 @@ var credential = JwtCredential.Create(token);
 public static Cluster Create(string connectionString, ICredential credential);
 ----
 
+Typically, JWTs have a short validity period.
+Renew JWTs with `SetCredential(newCredential)`.
+
 
 === Certificate Authentication
 
