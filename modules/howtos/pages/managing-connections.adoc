@@ -58,8 +58,8 @@ From the 1.1 SDK (with Enterprise Analytics Server 2.2+) JWT is supported.
 
 [source,go]
 ----
-var credential = JwtCredential.Create(token);
-public static Cluster Create(string connectionString, ICredential credential);
+cred := cbanalytics.NewJwtCredential(yourJWTtoken)
+cluster, err := cbanalytics.NewCluster(endpoint, cred)
 ----
 
 Typically, JWTs have a short validity period.
@@ -77,15 +77,8 @@ The SDK reads the certificate and private key from a `PKCS#12` file:
 
 [source,go]
 ----
-	opts := gocb.ClusterOptions{
-		Authenticator: gocb.CertificateAuthenticator{
-			ClientCertificate: &cert,
-		},
-	}
-	cluster, err := gocb.Connect("couchbases://--your-ip--", opts)
-	if err != nil {
-		panic(err)
-	}
+	cred := cbanalytics.NewCertificateCredential("path/to/client-cert-and-key.p12")
+	cluster, err := cbanalytics.NewCluster(endpoint, cred)
 ----
 
 
