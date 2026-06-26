@@ -29,7 +29,8 @@ The simplest way to create a `Cluster` object is to call `cbanalytics.Connect()`
 
 [source,golang]
 ----
-include::devguide:example$connecting.go[tags=connecting]
+cred := cbanalytics.NewBasicAuthCredential(username, password)
+cluster, err := cbanalytics.NewCluster(endpoint, cred)
 ----
 
 ////
