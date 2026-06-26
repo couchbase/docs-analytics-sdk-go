@@ -91,6 +91,23 @@ the platform's defaults are automatically trusted.
 The cluster's root certificate just needs to be issued by a CA whose certificate is in your system trust store.
 This includes well known CAs (including GoDaddy and Verisign), plus any other CA certificates that you wish to add.
 
+// Change format once we have the code snippet:
+////
+By default, the Analytics SDK trusts the same well-known Certificate Authorities (CAs) as the JVM, plus the Couchbase Capella CA.
+This works for most deployments.
+
+If you need to trust a different CA, or want to trust only a specific CA, you can override the default trust settings by telling the Analytics SDK which CA certificates to trust.
+
+[source,java]
+----
+var cluster = Cluster.newInstance(
+  connectionString,
+  credential,
+  options -> options
+    .security(sec -> sec.trustOnlyPemFile(Paths.get("path/to/ca.pem")))
+);
+----
+////
 
 
 == Local Development
