@@ -45,33 +45,50 @@ include::{version-common}@analytics-sdk:shared:partial$connstr.adoc[tag=more-con
 
 
 
-////
-== Alternate Addresses and Custom Ports
+== Authentication by Credential
 
-If your Couchbase Server cluster is running in a containerized, port mapped, or otherwise NAT'd environment like Docker or Kubernetes, a client running outside that environment may need additional information in order to connect the cluster.
-Both the client and server require special configuration in this case.
+Similarly to the `Authenticator` abstraction in Couchbase Operational SDKs, Analytics SDKs use a `Credential` abstraction covering regular password authentication (Basic Access Authentication), JSON Web Tokens (JWT), and Client Certificates through mTLS.
 
-On the server side, each server node must be configured to advertise its external address as well as any custom port mapping.
-This is done with the https://docs.couchbase.com/server/6.5/cli/cbcli/couchbase-cli-setting-alternate-address.html[`setting-alternate-address` CLI command] introduced in Couchbase Server 6.5.
-A node configured in this way will advertise two addresses: one for connecting from the same network, and another for connecting from an external network.
+Basic Access Authentication is shown in the example <<#connecting-to-a-cluster,above>>.
 
-On the client side, the externally visible ports must be used when connecting.
-If the external ports are not the default, you can specify custom ports using the overloaded `Cluster.connect()` method that takes a set of `SeedNode` objects instead of a connection string.
 
-[source,scala]
+=== JSON Web Tokens (JWT)
+
+From the 1.1 SDK (with Enterprise Analytics Server 2.2+) JWT is supported.
+
+[source,go]
 ----
-include::devguide:example$scala/ManagingConnections.scala[tag=seed-nodes,indent=0]
+cred := cbanalytics.NewJwtCredential(yourJWTtoken)
+cluster, err := cbanalytics.NewCluster(endpoint, cred)
 ----
 
-TIP: In a deployment that uses multi-dimensional scaling, a custom KV port is only applicable for nodes running the KV service.
-A custom manager port may be specified regardless of which services are running on the node.
+Typically, JWTs have a short validity period.
+Renew JWTs with `SetCredential(newCredential)`.
 
-In many cases the client is able to automatically select the correct set of addresses to use when connecting to a cluster that advertises multiple addresses.
-If the detection heuristic fails in your environment, you can override it by setting the `io.networkResolution` client setting to `default` if the client and server are on the same network, or `external` if they're on different networks.
 
-NOTE: Any TLS certificates must be set up at the point where the connections are being made.
-////
+=== Certificate Authentication
 
+From the 1.1 Analytics SDK (with Enterprise Analytics Server 2.2+) certificate authentication is supported.
+A conceptual and architectural overview of Enterprise Analytics's support of X.509 certificates is provided in the xref:{version-server}@server:learn:security/certificates.adoc[Server certificates docs].
+Practical information on handling certificates can be found in the xref:{version-ea}@enterprise-analytics:manage:manage-security/manage-certificates.adoc[Enterprise Analytics certificates docs].
+
+The Analytics SDK authenticates the client during the TLS handshake.
+The SDK reads the certificate and private key from a `PKCS#12` file:
+
+[source,go]
+----
+	cred := cbanalytics.NewCertificateCredential("path/to/client-cert-and-key.p12")
+	cluster, err := cbanalytics.NewCluster(endpoint, cred)
+----
+
+
+== Certificate Authority
+
+To make a TLS connection to an Enterprise Analytics cluster with a root certificate issued by a trusted CA (Certificate Authority), you do not need to add this to your configuration --
+the platform's defaults are automatically trusted.
+
+The cluster's root certificate just needs to be issued by a CA whose certificate is in your system trust store.
+This includes well known CAs (including GoDaddy and Verisign), plus any other CA certificates that you wish to add.
 
 
 
@@ -79,5 +96,5 @@ NOTE: Any TLS certificates must be set up at the point where the connections are
 
 
 We strongly recommend that the client and server xref:project-docs:compatibility.adoc#network-requirements[are in the same LAN-like environment] (e.g. AWS Region).
-As this may not always be possible during development, read the guidance on working with xref:ref:client-settings.adoc#commonly-used-options[constrained network environments].
+// As this may not always be possible during development, read the guidance on working with xref:ref:client-settings.adoc#commonly-used-options[constrained network environments].
 // More details on connecting your client code to Couchbase Capella can be found xref:cloud:clouds:connect-an-sdk.adoc#connecting-your-sdk-to-capella[in the Capella Operational docs].

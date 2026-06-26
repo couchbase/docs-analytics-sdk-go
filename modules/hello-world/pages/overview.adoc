@@ -1,10 +1,10 @@
-= Go Analytics SDK
+= Go Analytics SDK {sdk_dot_minor}
 :page-layout: landing-page-top-level-sdk
 :page-role: tiles
 :!sectids:
 
 
-= Go Analytics SDK
+= Go Analytics SDK {sdk_dot_minor}
 
 The Analytics Go SDK allows you to connect to an xref:entreprise-analytics:intro:intro.adoc[Enterprise Analytics] cluster from Go.
 For connecting to a Couchbase Server Cluster -- self-managed, or Capella Operational --

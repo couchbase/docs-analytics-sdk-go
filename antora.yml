@@ -22,4 +22,5 @@ asciidoc:
     sdk_api: '1.1'
     sdk-api-link: https://pkg.go.dev/github.com/couchbase/gocbanalytics
     sdk-gh-link: https://github.com/couchbase/gocbanalytics
+    async-server-api-feature-name: 'Server Asynchronous Request API'
     
