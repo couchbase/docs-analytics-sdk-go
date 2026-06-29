@@ -78,8 +78,12 @@ The SDK reads the certificate and private key from a `PKCS#12` file:
 
 [source,go]
 ----
-	cred := cbanalytics.NewCertificateCredential("path/to/client-cert-and-key.p12")
-	cluster, err := cbanalytics.NewCluster(endpoint, cred)
+cert, err := tls.LoadX509KeyPair("path/to/cert.pem", "path/to/key.pem")
+if err != nil {
+	handleErr(err)
+}
+cred := cbanalytics.NewCertificateCredential(&cert)
+cluster, err := cbanalytics.NewCluster(endpoint, cred)
 ----
 
 
