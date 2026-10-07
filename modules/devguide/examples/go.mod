@@ -1,7 +1,7 @@
 module examples
 
 require (
-	github.com/couchbase/gocbanalytics v1.0.0
+	github.com/couchbase/gocbanalytics v1.1.1
 	github.com/sirupsen/logrus v1.9.3
 )
 

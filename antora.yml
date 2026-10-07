@@ -10,7 +10,7 @@ asciidoc:
     page-nav-header-levels: 2
     server_version: '8.0.1'
     ea_version: '2.2.0'
-    sdk_current_version: '1.1.0'
+    sdk_current_version: '1.1.1'
     sdk_dot_minor: '1.1'
     sdk_dot_major: '1.x'
     version-server: '8.0'
