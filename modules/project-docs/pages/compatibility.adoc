@@ -33,10 +33,10 @@ include::{sdk_api}@analytics-sdk:shared:partial$network-requirements.adoc[tag=la
 
 
 
-== Enterprise Analytics Compatibility
+== Operational Insights Cluster Compatibility
 
-This is the initial release of Enterprise Analytics and the Analytics SDKs.
-As such, the Analytics SDK is fully compatible with Enterprise Analytics.
+
+include::1.1@analytics-sdk:shared:partial$compatibility.adoc[tag=cluster-compat]
 
 ////
 == Couchbase Analytics Compatibility
