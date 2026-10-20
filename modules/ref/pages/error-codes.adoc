@@ -11,6 +11,6 @@
 
 
 
-The {name-sdk} passes through the Analytics error codes from Enterprise Analytics.
+The {name-sdk} passes through the Analytics error codes from Operational Insights.
 
 For a full list of error codes, see xref:{version-server}@server:analytics:error-codes.adoc[Analytics ServiceError Codes].

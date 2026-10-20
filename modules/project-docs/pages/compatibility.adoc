@@ -1,5 +1,5 @@
 = Compatibility
-:description: Platform compatibility, and features available in different SDK versions, and compatibility between Enterprise Analytics and the SDK.
+:description: Platform compatibility, and features available in different SDK versions, and compatibility between Operational Insights and the SDK.
 // Plus notes on Cloud, networks, and AWS Lambda.
 :page-toclevels: 3
 :table-caption!:
