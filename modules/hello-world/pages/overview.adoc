@@ -4,7 +4,7 @@
 :!sectids:
 
 
-= Go Operational Insights SDK
+= Go Operational Insights SDK 1.0
 
 The Operational Insights Go SDK allows you to connect to an xref:entreprise-analytics:intro:intro.adoc[Operational Insights] cluster from Go.
 For connecting to a Couchbase Server Cluster -- self-managed, or Capella Operational --
